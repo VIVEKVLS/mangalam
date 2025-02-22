@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+/* Ensure Background Image is Loaded Correctly */
+.hero-bg {
+  background-image: url("/bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Animation Fix */
+@keyframes squidGameAnimation {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+/* Apply Animation */
+.squid-game-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/bg.webp");
+  background-size: cover;
+  background-repeat: repeat;
+  /* opacity: 0.1; */
+  animation: squidGameAnimation 20s infinite linear;
+  z-index: -1;
+}
+
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
