@@ -185,9 +185,9 @@ const GameCard: React.FC<GameCardProps> = ({ title, category, icon: Icon, descri
 
   return (
     <div
-      className={`bg-gray-900 rounded-xl overflow-hidden p-6 shadow-md border border-red-500 transition-all duration-300 transform ${
+      className={`rounded-xl overflow-hidden p-6 shadow-md border transition-all duration-300 transform ${
         hovered ? "scale-105 shadow-lg" : "scale-100"
-      }`}
+      } bg-gradient-to-b from-gray-800 to-black border-gray-700`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -203,9 +203,9 @@ const GameCard: React.FC<GameCardProps> = ({ title, category, icon: Icon, descri
 
 const FeaturedGames: React.FC = () => {
   return (
-    <section id="featured-games" className="py-20 bg-gradient-to-b from-black to-gray-900">
+    <section id="featured-games" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-5xl font-extrabold text-red-500 tracking-wide uppercase mb-12">
+        <h2 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-white to-teal-500 tracking-wide uppercase mb-12">
           Featured Events
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
