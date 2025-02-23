@@ -5,7 +5,7 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setIsVisible(true), 100); // Add a slight delay for smooth fade-in
+    setTimeout(() => setIsVisible(true), 100); // Smooth fade-in effect
   }, []);
 
   return (
@@ -25,12 +25,14 @@ const Hero = () => {
         <h1 className="text-[50px] md:text-[100px] font-extrabold bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 tracking-widest text-transparent bg-clip-text">
           MANGALAM
         </h1>
-        <p className="text-xl md:text-3xl font-semibold text-blue-400 mb-4">Annual Fest of MGMCET</p>
+        <p className="text-xl md:text-3xl font-semibold text-blue-400 mb-4">
+          Annual Fest of MGMCET
+        </p>
         <p className="text-xl font-medium text-gray-200 max-w-3xl mx-auto mb-6">
           Experience the thrill – Technical, Cultural, and Sports Extravaganza!
         </p>
         <p className="text-2xl font-bold text-magenta-400 tracking-wide drop-shadow-md uppercase">
-          | Bridging Bytes  Beats and Battlegrounds |
+          | Bridging Bytes, Beats, and Battlegrounds |
         </p>
       </div>
     </div>

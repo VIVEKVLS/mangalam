@@ -15,7 +15,7 @@ const contactInfo = [
   {
     domain: "Cultural",
     secretary: "Vishakha D. Pingat",
-    jointSecretary: "Snehi Suryavanshi",
+    jointSecretary: "Snehil  Suryavanshi",
   },
 ];
 
