@@ -42,6 +42,11 @@ const Navbar = () => {
                     </a>
                   </li>
                   <li>
+                    <a href="https://forms.gle/d9suMjjMB2GobPjaA" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
+                      Box Cricket
+                    </a>
+                  </li>
+                  <li>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScZ2uqSHwQUp-n4pjgLE0aRaKuLlv3YBgJ4_vcfSbTxQLEZnQ/viewform?usp=preview" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
                       Carrom
                     </a>
