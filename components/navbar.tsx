@@ -29,7 +29,7 @@ const Navbar = () => {
             </button>
 
             {isOpen && (
-              <div className="absolute right-0 mt-2 w-64 bg-gray-900 text-white rounded-lg shadow-lg">
+              <div className="absolute right-0 mt-2 w-64 bg-gray-900 text-white rounded-lg shadow-lg overflow-auto max-h-96">
                 <ul className="py-2">
                   <li>
                     <a href="https://forms.gle/u2UFST9xaDTF8bLy9" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
@@ -39,6 +39,16 @@ const Navbar = () => {
                   <li>
                     <a href="https://forms.gle/CPvTcfGSfsbfcFiK6" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
                       Badminton (Mixed)
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfN_p1pp6Om8YtBKbYpxMIRTpRhvKWtqUKXpqYukiftpsAVEQ/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
+                      Basketball (Boys)
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeiOdvGpC4F0NKDpb7y7Zbz1FoiQbjysvmtKPlGD3K9pLE48A/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
+                      Basketball (Girls)
                     </a>
                   </li>
                   <li>
@@ -59,6 +69,21 @@ const Navbar = () => {
                   <li>
                     <a href="https://forms.gle/wGXMLzsuvXSGYfHo8" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
                       Chess
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCySTaVEgKwM-X9d38SBN9Rzvt7KridYjEMpBlcMBWoRbw0A/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
+                      Kabaddi (Girls)
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe24fKWvM_Jo6TpqviyBz99kvdb_2i6-sw7xqrt9d6ppd0n7w/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
+                      Open Cricket (Girls)
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEIN7nQ3I2kSJmqEGVtz_KvGFCj_uFRoazKJ3U8qATxp3zNQ/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
+                      Open Cricket (Boys)
                     </a>
                   </li>
                 </ul>
