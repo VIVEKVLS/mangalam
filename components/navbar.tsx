@@ -5,86 +5,92 @@ import Link from "next/link";
 import { ChevronDown, ChevronUp, Gamepad2 } from "lucide-react";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isSportsOpen, setIsSportsOpen] = useState(false);
+  const [isCulturalOpen, setIsCulturalOpen] = useState(false);
 
-  const toggleDropdown = () => setIsOpen(!isOpen);
+  const toggleRegisterDropdown = () => setIsRegisterOpen(!isRegisterOpen);
+  const toggleSportsDropdown = () => setIsSportsOpen(!isSportsOpen);
+  const toggleCulturalDropdown = () => setIsCulturalOpen(!isCulturalOpen);
 
   return (
-    <nav className="bg-black bg-opacity-90 fixed w-full z-10 shadow-lg">
+    <nav className="bg-black bg-opacity-90 fixed w-full z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <div className="flex items-center justify-between h-16">
-          {/* Left Side - Mangalam Branding */}
+          {/* Left Side - Branding */}
           <Link href="/" className="text-red-500 text-2xl font-extrabold tracking-wider uppercase">
             Mangalam <span className="text-white">2025</span>
           </Link>
 
-          {/* Right Side - Dropdown Menu */}
+          {/* Right Side - Register Dropdown */}
           <div className="relative">
             <button
-              onClick={toggleDropdown}
-              className="flex items-center bg-red-600 text-white px-6 py-3 rounded-lg font-bold uppercase shadow-lg hover:bg-red-700 transform transition duration-300 hover:scale-105 active:scale-95"
+              onClick={toggleRegisterDropdown}
+              className="flex items-center bg-pink-600 text-white px-6 py-3 rounded-lg font-bold uppercase shadow-lg hover:bg-pink-700 transition duration-300"
             >
-              <Gamepad2 className="mr-2" size={22} /> Register Now 
-              {isOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
+              <Gamepad2 className="mr-2" size={22} /> Register Now
+              {isRegisterOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
             </button>
 
-            {isOpen && (
-              <div className="absolute right-0 mt-2 w-64 bg-gray-900 text-white rounded-lg shadow-lg overflow-auto max-h-96">
+            {isRegisterOpen && (
+              <div className="absolute right-0 top-full mt-2 w-72 bg-gray-900 text-white rounded-lg shadow-lg z-50">
                 <ul className="py-2">
+                  {/* 🔺 Squid-Style Sports Dropdown */}
                   <li>
-                    <a href="https://forms.gle/u2UFST9xaDTF8bLy9" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Badminton (Singles)
-                    </a>
+                    <button
+                      onClick={toggleSportsDropdown}
+                      className="flex items-center w-full text-left px-4 py-3 hover:bg-gray-800 font-bold"
+                    >
+                      <span className="inline-flex items-center justify-center w-8 h-8 bg-pink-600 text-black font-extrabold text-lg rounded-full mr-2 shadow-lg">
+                        1
+                      </span>
+                      <span className="font-squidgame text-lg tracking-wider uppercase">
+                        Sports
+                      </span>
+                      {isSportsOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
+                    </button>
+                    {isSportsOpen && (
+                      <ul className="bg-gray-800 rounded-lg mt-1">
+                        {[
+                          { name: "🏀 Basketball (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSeiOdvGpC4F0NKDpb7y7Zbz1FoiQbjysvmtKPlGD3K9pLE48A/viewform" },
+                          { name: "🏀 Basketball (Boys)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfN_p1pp6Om8YtBKbYpxMIRTpRhvKWtqUKXpqYukiftpsAVEQ/viewform" },
+                          { name: "🏏 Box Cricket (Boys)", link: "https://forms.gle/d9suMjjMB2GobPjaA" },
+                          { name: "🏏 Box Cricket (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSdT_M8cs5sNOj-U0STVc29V66ES9R3QBKt94W7m_r9VWWXxnQ/viewform" },
+                          { name: "⚾ Open Cricket (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSe24fKWvM_Jo6TpqviyBz99kvdb_2i6-sw7xqrt9d6ppd0n7w/viewform" },
+                          { name: "⚾ Open Cricket (Boys)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfEIN7nQ3I2kSJmqEGVtz_KvGFCj_uFRoazKJ3U8qATxp3zNQ/viewform" },
+                          { name: "🤼 Kabaddi (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfCySTaVEgKwM-X9d38SBN9Rzvt7KridYjEMpBlcMBWoRbw0A/viewform" },
+                          { name: "🎯 Carrom", link: "https://docs.google.com/forms/d/e/1FAIpQLScZ2uqSHwQUp-n4pjgLE0aRaKuLlv3YBgJ4_vcfSbTxQLEZnQ/viewform?usp=preview" },
+                          { name: "♟ Chess", link: "https://forms.gle/wGXMLzsuvXSGYfHo8" },
+                        ].map((sport, index) => (
+                          <li key={index}>
+                            <a href={sport.link} target="_blank" rel="noopener noreferrer" className="block px-4 py-3 text-gray-200 hover:bg-gray-700 font-semibold tracking-wider">
+                              {sport.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
+
+                  {/* 🟢 Cultural Dropdown */}
                   <li>
-                    <a href="https://forms.gle/CPvTcfGSfsbfcFiK6" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Badminton (Mixed)
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfN_p1pp6Om8YtBKbYpxMIRTpRhvKWtqUKXpqYukiftpsAVEQ/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Basketball (Boys)
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeiOdvGpC4F0NKDpb7y7Zbz1FoiQbjysvmtKPlGD3K9pLE48A/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Basketball (Girls)
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://forms.gle/d9suMjjMB2GobPjaA" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Box Cricket (Boys)
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdT_M8cs5sNOj-U0STVc29V66ES9R3QBKt94W7m_r9VWWXxnQ/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Box Cricket (Girls)
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScZ2uqSHwQUp-n4pjgLE0aRaKuLlv3YBgJ4_vcfSbTxQLEZnQ/viewform?usp=preview" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Carrom
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://forms.gle/wGXMLzsuvXSGYfHo8" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Chess
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCySTaVEgKwM-X9d38SBN9Rzvt7KridYjEMpBlcMBWoRbw0A/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Kabaddi 
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe24fKWvM_Jo6TpqviyBz99kvdb_2i6-sw7xqrt9d6ppd0n7w/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Open Cricket (Girls)
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEIN7nQ3I2kSJmqEGVtz_KvGFCj_uFRoazKJ3U8qATxp3zNQ/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Open Cricket (Boys)
-                    </a>
+                    <button
+                      onClick={toggleCulturalDropdown}
+                      className="flex items-center w-full text-left px-4 py-3 hover:bg-gray-800 font-bold"
+                    >
+                      <span className="inline-flex items-center justify-center w-8 h-8 bg-green-600 text-white font-extrabold text-lg rounded-full mr-2 shadow-lg">
+                        2
+                      </span>
+                      <span className="text-lg tracking-wider uppercase">
+                        Cultural
+                      </span>
+                      {isCulturalOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
+                    </button>
+                    {isCulturalOpen && (
+                      <div className="bg-gray-800 rounded-lg mt-1 px-4 py-3 text-center text-gray-300 font-semibold text-lg">
+                        🎭 Coming Soon...
+                      </div>
+                    )}
                   </li>
                 </ul>
               </div>
