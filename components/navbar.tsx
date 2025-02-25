@@ -73,7 +73,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCySTaVEgKwM-X9d38SBN9Rzvt7KridYjEMpBlcMBWoRbw0A/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Kabaddi (Girls)
+                      Kabaddi 
                     </a>
                   </li>
                   <li>
