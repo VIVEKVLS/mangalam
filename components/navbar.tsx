@@ -43,7 +43,12 @@ const Navbar = () => {
                   </li>
                   <li>
                     <a href="https://forms.gle/d9suMjjMB2GobPjaA" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
-                      Box Cricket
+                      Box Cricket (Boys)
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdT_M8cs5sNOj-U0STVc29V66ES9R3QBKt94W7m_r9VWWXxnQ/viewform" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-gray-800">
+                      Box Cricket (Girls)
                     </a>
                   </li>
                   <li>
