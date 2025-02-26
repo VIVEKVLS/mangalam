@@ -44,23 +44,27 @@ const Navbar = () => {
                       <span className="inline-flex items-center justify-center w-8 h-8 bg-pink-600 text-black font-extrabold text-lg rounded-full mr-2 shadow-lg">
                         1
                       </span>
-                      <span className="font-squidgame text-lg tracking-wider uppercase">
-                        Sports
-                      </span>
+                      <span className="text-lg tracking-wider uppercase">Sports</span>
                       {isSportsOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
                     </button>
                     {isSportsOpen && (
                       <ul className="bg-gray-800 rounded-lg mt-1">
                         {[
-                          { name: "🏀 Basketball (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSeiOdvGpC4F0NKDpb7y7Zbz1FoiQbjysvmtKPlGD3K9pLE48A/viewform" },
+                          { name: "🏸 Badminton (Men's Doubles & Mixed Doubles)", link: "https://docs.google.com/forms/d/e/1FAIpQLScP2AKjzQJgiP0hFVFZiv3GYk9MZFgn2GdkOKWt1DmPdrTVzw/viewform" },
+                          { name: "🏸 Badminton (Singles)", link: "https://docs.google.com/forms/d/e/1FAIpQLSdM7Y3EG2aTtad9jhlDHzGSwRwb7ooBgljedExCfxT1GrMc2Q/viewform" },
                           { name: "🏀 Basketball (Boys)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfN_p1pp6Om8YtBKbYpxMIRTpRhvKWtqUKXpqYukiftpsAVEQ/viewform" },
+                          { name: "🏀 Basketball (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSeiOdvGpC4F0NKDpb7y7Zbz1FoiQbjysvmtKPlGD3K9pLE48A/viewform" },
                           { name: "🏏 Box Cricket (Boys)", link: "https://forms.gle/d9suMjjMB2GobPjaA" },
                           { name: "🏏 Box Cricket (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSdT_M8cs5sNOj-U0STVc29V66ES9R3QBKt94W7m_r9VWWXxnQ/viewform" },
-                          { name: "⚾ Open Cricket (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSe24fKWvM_Jo6TpqviyBz99kvdb_2i6-sw7xqrt9d6ppd0n7w/viewform" },
-                          { name: "⚾ Open Cricket (Boys)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfEIN7nQ3I2kSJmqEGVtz_KvGFCj_uFRoazKJ3U8qATxp3zNQ/viewform" },
-                          { name: "🤼 Kabaddi (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfCySTaVEgKwM-X9d38SBN9Rzvt7KridYjEMpBlcMBWoRbw0A/viewform" },
                           { name: "🎯 Carrom", link: "https://docs.google.com/forms/d/e/1FAIpQLScZ2uqSHwQUp-n4pjgLE0aRaKuLlv3YBgJ4_vcfSbTxQLEZnQ/viewform?usp=preview" },
                           { name: "♟ Chess", link: "https://forms.gle/wGXMLzsuvXSGYfHo8" },
+                          { name: "🤼 Kabaddi (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfCySTaVEgKwM-X9d38SBN9Rzvt7KridYjEMpBlcMBWoRbw0A/viewform" },
+                          { name: "🏃 Kho-Kho", link: "https://docs.google.com/forms/d/e/1FAIpQLScqVyeSlkDWP2OB7SYdVfBLjwiIjx1yGxOhpI2EIExC9AQ-7A/viewform" },
+                          { name: "⚾ Open Cricket (Boys)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfEIN7nQ3I2kSJmqEGVtz_KvGFCj_uFRoazKJ3U8qATxp3zNQ/viewform" },
+                          { name: "⚾ Open Cricket (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSe24fKWvM_Jo6TpqviyBz99kvdb_2i6-sw7xqrt9d6ppd0n7w/viewform" },
+                          { name: "🏐 Volleyball (Boys)", link: "https://docs.google.com/forms/d/e/1FAIpQLSec_iuAZBAuW6oDJB68JIFiEn_Z6zCLFAFv7vzyP1Dt1uzVbQ/viewform" },
+                          { name: "🏐 Volleyball (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSc-OcwMCLLA44Wc666nepmh_NL7Xd_ifRIggn1_iMsliNQr_A/viewform" },
+                          { name: "🏐 Throwball (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfhT3tgA-PWKUJlKILlFXzFVMVM7lkrKAEPheOmuPxHA7LmXw/viewform" },
                         ].map((sport, index) => (
                           <li key={index}>
                             <a href={sport.link} target="_blank" rel="noopener noreferrer" className="block px-4 py-3 text-gray-200 hover:bg-gray-700 font-semibold tracking-wider">
@@ -81,9 +85,7 @@ const Navbar = () => {
                       <span className="inline-flex items-center justify-center w-8 h-8 bg-green-600 text-white font-extrabold text-lg rounded-full mr-2 shadow-lg">
                         2
                       </span>
-                      <span className="text-lg tracking-wider uppercase">
-                        Cultural
-                      </span>
+                      <span className="text-lg tracking-wider uppercase">Cultural</span>
                       {isCulturalOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
                     </button>
                     {isCulturalOpen && (
