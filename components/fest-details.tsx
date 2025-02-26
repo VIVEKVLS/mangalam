@@ -32,7 +32,7 @@ const CurrentFestDetails = () => {
             </p>
             <a
               href="/pdfs/mangalam-tech.pdf"
-              download
+              download="Mangalam-Tech-2025.pdf"
               className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full inline-flex items-center transition duration-300 shadow-md"
             >
               <Download className="mr-2" />
@@ -47,8 +47,8 @@ const CurrentFestDetails = () => {
               Unleash your energy in thrilling sports competitions, ranging from intense team battles to solo challenges.
             </p>
             <a
-              href="/pdfs/Mangalam-sports.pdf"
-              download
+              href="/Mangalam-Sports-2025.pdf" // ✅ Ensure this file is inside `/public/`
+              download="Mangalam-Sports-2025.pdf"
               className="bg-green-400 hover:bg-green-500 text-black font-bold py-3 px-6 rounded-full inline-flex items-center transition duration-300 shadow-md"
             >
               <Download className="mr-2" />
@@ -64,7 +64,7 @@ const CurrentFestDetails = () => {
             </p>
             <a
               href="/pdfs/mangalam-cultural.pdf"
-              download
+              download="Mangalam-Cultural-2025.pdf"
               className="bg-purple-400 hover:bg-purple-500 text-black font-bold py-3 px-6 rounded-full inline-flex items-center transition duration-300 shadow-md"
             >
               <Download className="mr-2" />
