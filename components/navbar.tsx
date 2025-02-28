@@ -7,11 +7,9 @@ import { ChevronDown, ChevronUp, Gamepad2 } from "lucide-react";
 const Navbar = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isSportsOpen, setIsSportsOpen] = useState(false);
-  const [isCulturalOpen, setIsCulturalOpen] = useState(false);
 
   const toggleRegisterDropdown = () => setIsRegisterOpen(!isRegisterOpen);
   const toggleSportsDropdown = () => setIsSportsOpen(!isSportsOpen);
-  const toggleCulturalDropdown = () => setIsCulturalOpen(!isCulturalOpen);
 
   return (
     <nav className="bg-black bg-opacity-90 fixed w-full z-50 shadow-lg">
@@ -35,7 +33,7 @@ const Navbar = () => {
             {isRegisterOpen && (
               <div className="absolute right-0 top-full mt-2 w-72 bg-gray-900 text-white rounded-lg shadow-lg z-50">
                 <ul className="py-2">
-                  {/* 🔺 Squid-Style Sports Dropdown */}
+                  {/* Sports Dropdown */}
                   <li>
                     <button
                       onClick={toggleSportsDropdown}
@@ -47,9 +45,11 @@ const Navbar = () => {
                       <span className="text-lg tracking-wider uppercase">⚽ Sports</span>
                       {isSportsOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
                     </button>
+
                     {isSportsOpen && (
-                      <ul className="bg-gray-800 rounded-lg mt-1">
-                        {[
+                      <ul className="bg-gray-800 rounded-lg mt-1 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900">
+                        {[  
+                          { name: "🏃 Athletics", link: "https://forms.gle/cYKVV3TowzgnSNMaA" },
                           { name: "🏸 Badminton (Men's Doubles & Mixed Doubles)", link: "https://docs.google.com/forms/d/e/1FAIpQLScP2AKjzQJgiP0hFVFZiv3GYk9MZFgn2GdkOKWt1DmPdrTVzw/viewform" },
                           { name: "🏸 Badminton (Singles)", link: "https://docs.google.com/forms/d/e/1FAIpQLSdM7Y3EG2aTtad9jhlDHzGSwRwb7ooBgljedExCfxT1GrMc2Q/viewform" },
                           { name: "🏀 Basketball (Boys)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfN_p1pp6Om8YtBKbYpxMIRTpRhvKWtqUKXpqYukiftpsAVEQ/viewform" },
@@ -59,15 +59,15 @@ const Navbar = () => {
                           { name: "🎯 Carrom", link: "https://docs.google.com/forms/d/e/1FAIpQLScZ2uqSHwQUp-n4pjgLE0aRaKuLlv3YBgJ4_vcfSbTxQLEZnQ/viewform?usp=preview" },
                           { name: "♟ Chess", link: "https://forms.gle/wGXMLzsuvXSGYfHo8" },
                           { name: "⚽ Football (Open)", link: "https://docs.google.com/forms/d/e/1FAIpQLSerVjjpDCrhO53pgdr_Q_zEKEWM3XudwDlvXIxocKczeQwN7A/viewform" },
-                          { name: "⚽ Football (Rink)", link: "https://docs.google.com/forms/d/e/1FAIpQLSchQj5cAlNtKGsfs3tyJAcvv3aelwUpjJNp1KA0Z24mjnC2xQ/viewform" },
+                          { name: "⚽ Football (Ring)", link: "https://docs.google.com/forms/d/e/1FAIpQLSchQj5cAlNtKGsfs3tyJAcvv3aelwUpjJNp1KA0Z24mjnC2xQ/viewform" },
                           { name: "🤼 Kabaddi", link: "https://docs.google.com/forms/d/e/1FAIpQLSfCySTaVEgKwM-X9d38SBN9Rzvt7KridYjEMpBlcMBWoRbw0A/viewform" },
                           { name: "🏃 Kho-Kho", link: "https://docs.google.com/forms/d/e/1FAIpQLScqVyeSlkDWP2OB7SYdVfBLjwiIjx1yGxOhpI2EIExC9AQ-7A/viewform" },
-                          { name: "⚾ Open Cricket (Boys)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfEIN7nQ3I2kSJmqEGVtz_KvGFCj_uFRoazKJ3U8qATxp3zNQ/viewform" },
-                          { name: "⚾ Open Cricket (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSe24fKWvM_Jo6TpqviyBz99kvdb_2i6-sw7xqrt9d6ppd0n7w/viewform" },
-                          { name: "🏐 Volleyball (Boys)", link: "https://docs.google.com/forms/d/e/1FAIpQLSec_iuAZBAuW6oDJB68JIFiEn_Z6zCLFAFv7vzyP1Dt1uzVbQ/viewform" },
-                          { name: "⚽ Penalty ShootOut (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLScUuV7lqozEJF6wAqcxOPiHLxEQUlWeE81ZVAS4l-pD6wwJEg/viewform" },
-                          { name: "🏃 Athletics", link: "https://forms.gle/cYKVV3TowzgnSNMaA" },
+                          { name: "⚽ Penalty Shootout (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLScUuV7lqozEJF6wAqcxOPiHLxEQUlWeE81ZVAS4l-pD6wwJEg/viewform" },
+                          { name: "🤸 Skipping", link: "https://docs.google.com/forms/d/e/1FAIpQLSf7AxrSr_itG9_mY1LrXqXQFBD1Ae-1hCqEVbuiq13jnbe2OA/viewform" },
                           { name: "🏓 Table Tennis", link: "https://docs.google.com/forms/d/e/1FAIpQLScagALjsxzQ0Q0iCSvQL9VDe6trwYBt5fSSP1EX-_MWzfZZMw/viewform" },
+                          { name: "🏐 Throwball (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfhT3tgA-PWKUJlKILlFXzFVMVM7lkrKAEPheOmuPxHA7LmXw/viewform" },
+                          { name: "🏐 Volleyball (Boys)", link: "https://docs.google.com/forms/d/e/1FAIpQLSec_iuAZBAuW6oDJB68JIFiEn_Z6zCLFAFv7vzyP1Dt1uzVbQ/viewform" },
+                          { name: "🏐 Volleyball (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSc-OcwMCLLA44Wc666nepmh_NL7Xd_ifRIggn1_iMsliNQr_A/viewform" },
                         ].map((sport, index) => (
                           <li key={index}>
                             <a href={sport.link} target="_blank" rel="noopener noreferrer" className="block px-4 py-3 text-gray-200 hover:bg-gray-700 font-semibold tracking-wider">
