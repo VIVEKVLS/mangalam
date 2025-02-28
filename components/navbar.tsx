@@ -7,10 +7,12 @@ import { ChevronDown, ChevronUp, Gamepad2 } from "lucide-react";
 const Navbar = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isSportsOpen, setIsSportsOpen] = useState(false);
+  const [isTechnicalOpen, setIsTechnicalOpen] = useState(false);
   const [isCulturalOpen, setIsCulturalOpen] = useState(false);
 
   const toggleRegisterDropdown = () => setIsRegisterOpen(!isRegisterOpen);
   const toggleSportsDropdown = () => setIsSportsOpen(!isSportsOpen);
+  const toggleTechnicalDropdown = () => setIsTechnicalOpen(!isTechnicalOpen);
   const toggleCulturalDropdown = () => setIsCulturalOpen(!isCulturalOpen);
 
   return (
@@ -33,6 +35,7 @@ const Navbar = () => {
             {isRegisterOpen && (
               <div className="absolute right-0 top-full mt-2 w-72 bg-gray-900 text-white rounded-lg shadow-lg z-50">
                 <ul className="py-2">
+                  {/* Sports Section */}
                   <li>
                     <button
                       onClick={toggleSportsDropdown}
@@ -60,6 +63,7 @@ const Navbar = () => {
                           { name: "🏃 Kho-Kho", link: "https://docs.google.com/forms/d/e/1FAIpQLScqVyeSlkDWP2OB7SYdVfBLjwiIjx1yGxOhpI2EIExC9AQ-7A/viewform" },
                           { name: "⚽ Penalty Shootout (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLScUuV7lqozEJF6wAqcxOPiHLxEQUlWeE81ZVAS4l-pD6wwJEg/viewform" },
                           { name: "🏓 Table Tennis", link: "https://docs.google.com/forms/d/e/1FAIpQLScagALjsxzQ0Q0iCSvQL9VDe6trwYBt5fSSP1EX-_MWzfZZMw/viewform" },
+                          { name: "⏩ Skipping", link: "https://docs.google.com/forms/d/e/1FAIpQLSf7AxrSr_itG9_mY1LrXqXQFBD1Ae-1hCqEVbuiq13jnbe2OA/viewform" },
                         ].map((sport, index) => (
                           <li key={index}>
                             <a href={sport.link} target="_blank" rel="noopener noreferrer" className="block px-4 py-3 text-gray-200 hover:bg-gray-700 font-semibold tracking-wider">
@@ -69,6 +73,16 @@ const Navbar = () => {
                         ))}
                       </ul>
                     )}
+                  </li>
+
+                  {/* Technical Section */}
+                  <li className="px-4 py-3 text-lg font-bold text-gray-400 uppercase tracking-wider text-center">
+                    <span className="font-mono text-blue-400">Technical - Coming Soon</span>
+                  </li>
+
+                  {/* Cultural Section */}
+                  <li className="px-4 py-3 text-lg font-bold text-gray-400 uppercase tracking-wider text-center">
+                    Cultural - Coming Soon
                   </li>
                 </ul>
               </div>
