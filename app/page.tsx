@@ -1,6 +1,6 @@
-import Hero from "@/components/hero"
-import FeaturedGames from "@/components/featured-games"
-import FestDetails from "@/components/fest-details"
+import Hero from "@/components/hero";
+import FeaturedGames from "@/components/featured-games";
+import FestDetails from "@/components/fest-details";
 
 export default function Home() {
   return (
@@ -9,6 +9,5 @@ export default function Home() {
       <FeaturedGames />
       <FestDetails />
     </div>
-  )
+  );
 }
-// ghjgyukftHGHF

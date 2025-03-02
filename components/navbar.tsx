@@ -24,7 +24,7 @@ const Navbar = () => {
           <div className="relative">
             <button
               onClick={toggleRegisterDropdown}
-              className="flex items-center bg-pink-600 text-white px-6 py-3 rounded-lg font-bold uppercase shadow-lg hover:bg-pink-700 transition duration-300"
+              className="flex items-center bg-pink-600 text-white px-2 py-1  md:px-6 md:py-3  rounded-lg font-bold uppercase shadow-lg hover:bg-pink-700 transition duration-300"
             >
               <Gamepad2 className="mr-2" size={22} /> Register Now
               {isRegisterOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
@@ -48,7 +48,7 @@ const Navbar = () => {
 
                     {isSportsOpen && (
                       <ul className="bg-gray-800 rounded-lg mt-1 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900">
-                        {[  
+                        {[
                           { name: "🏃 Athletics", link: "https://forms.gle/cYKVV3TowzgnSNMaA" },
                           { name: "🏸 Badminton (Men's Doubles & Mixed Doubles)", link: "https://docs.google.com/forms/d/e/1FAIpQLScP2AKjzQJgiP0hFVFZiv3GYk9MZFgn2GdkOKWt1DmPdrTVzw/viewform" },
                           { name: "🏸 Badminton (Singles)", link: "https://docs.google.com/forms/d/e/1FAIpQLSdM7Y3EG2aTtad9jhlDHzGSwRwb7ooBgljedExCfxT1GrMc2Q/viewform" },
@@ -62,10 +62,13 @@ const Navbar = () => {
                           { name: "⚽ Football (Ring)", link: "https://docs.google.com/forms/d/e/1FAIpQLSchQj5cAlNtKGsfs3tyJAcvv3aelwUpjJNp1KA0Z24mjnC2xQ/viewform" },
                           { name: "🤼 Kabaddi", link: "https://docs.google.com/forms/d/e/1FAIpQLSfCySTaVEgKwM-X9d38SBN9Rzvt7KridYjEMpBlcMBWoRbw0A/viewform" },
                           { name: "🏃 Kho-Kho", link: "https://docs.google.com/forms/d/e/1FAIpQLScqVyeSlkDWP2OB7SYdVfBLjwiIjx1yGxOhpI2EIExC9AQ-7A/viewform" },
+                          { name: "⚾ Open Cricket (Boys)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfEIN7nQ3I2kSJmqEGVtz_KvGFCj_uFRoazKJ3U8qATxp3zNQ/viewform" },
+                          { name: "⚾ Open Cricket (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSe24fKWvM_Jo6TpqviyBz99kvdb_2i6-sw7xqrt9d6ppd0n7w/viewform" },
                           { name: "⚽ Penalty Shootout (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLScUuV7lqozEJF6wAqcxOPiHLxEQUlWeE81ZVAS4l-pD6wwJEg/viewform" },
                           { name: "🤸 Skipping", link: "https://docs.google.com/forms/d/e/1FAIpQLSf7AxrSr_itG9_mY1LrXqXQFBD1Ae-1hCqEVbuiq13jnbe2OA/viewform" },
                           { name: "🏓 Table Tennis", link: "https://docs.google.com/forms/d/e/1FAIpQLScagALjsxzQ0Q0iCSvQL9VDe6trwYBt5fSSP1EX-_MWzfZZMw/viewform" },
                           { name: "🏐 Throwball (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSfhT3tgA-PWKUJlKILlFXzFVMVM7lkrKAEPheOmuPxHA7LmXw/viewform" },
+                          { name: "🏋 Tug of War", link: "https://docs.google.com/forms/d/e/1FAIpQLSdjNouvUMq4W5uys3EorPAuPVLoVFVr2j1k7iY-EsXf0iiOHw/viewform" },
                           { name: "🏐 Volleyball (Boys)", link: "https://docs.google.com/forms/d/e/1FAIpQLSec_iuAZBAuW6oDJB68JIFiEn_Z6zCLFAFv7vzyP1Dt1uzVbQ/viewform" },
                           { name: "🏐 Volleyball (Girls)", link: "https://docs.google.com/forms/d/e/1FAIpQLSc-OcwMCLLA44Wc666nepmh_NL7Xd_ifRIggn1_iMsliNQr_A/viewform" },
                         ].map((sport, index) => (
