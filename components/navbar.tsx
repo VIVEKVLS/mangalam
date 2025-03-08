@@ -7,9 +7,11 @@ import { ChevronDown, ChevronUp, Gamepad2 } from "lucide-react";
 const Navbar = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isSportsOpen, setIsSportsOpen] = useState(false);
+  const [isCulturalOpen, setIsCulturalOpen] = useState(false);
 
   const toggleRegisterDropdown = () => setIsRegisterOpen(!isRegisterOpen);
   const toggleSportsDropdown = () => setIsSportsOpen(!isSportsOpen);
+  const toggleCulturalDropdown = () => setIsCulturalOpen(!isCulturalOpen);
 
   return (
     <nav className="bg-black bg-opacity-90 fixed w-full z-50 shadow-lg">
@@ -24,7 +26,7 @@ const Navbar = () => {
           <div className="relative">
             <button
               onClick={toggleRegisterDropdown}
-              className="flex items-center bg-pink-600 text-white px-2 py-1  md:px-6 md:py-3  rounded-lg font-bold uppercase shadow-lg hover:bg-pink-700 transition duration-300"
+              className="flex items-center bg-pink-600 text-white px-2 py-1 md:px-6 md:py-3 rounded-lg font-bold uppercase shadow-lg hover:bg-pink-700 transition duration-300"
             >
               <Gamepad2 className="mr-2" size={22} /> Register Now
               {isRegisterOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
@@ -75,6 +77,44 @@ const Navbar = () => {
                           <li key={index}>
                             <a href={sport.link} target="_blank" rel="noopener noreferrer" className="block px-4 py-3 text-gray-200 hover:bg-gray-700 font-semibold tracking-wider">
                               {sport.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+
+                  {/* Cultural Dropdown */}
+                  <li>
+                    <button
+                      onClick={toggleCulturalDropdown}
+                      className="flex items-center w-full text-left px-4 py-3 hover:bg-gray-800 font-bold"
+                    >
+                      <span className="inline-flex items-center justify-center w-8 h-8 bg-pink-600 text-black font-extrabold text-lg rounded-full mr-2 shadow-lg">
+                        2
+                      </span>
+                      <span className="text-lg tracking-wider uppercase">🎭 Cultural</span>
+                      {isCulturalOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
+                    </button>
+
+                    {isCulturalOpen && (
+                      <ul className="bg-gray-800 rounded-lg mt-1 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900">
+                        {[
+                          { name: "🎤 Antakshari", link: "https://docs.google.com/forms/d/e/1FAIpQLSd6AWJGWERiNZp8MR0yd9xFNP3tiNauBPQ5C8EG6-70r6OTmg/viewform" },
+                          { name: "💃 Group Dance", link: "https://docs.google.com/forms/d/e/1FAIpQLScnMSjeLoEQmp39ruUuidGltpnZcxa8tXbVx9UU9FZHgYYiDA/viewform" },
+                          { name: "💅 Makeup", link: "https://docs.google.com/forms/d/e/1FAIpQLScvnkfCOO_XxoYJneqril5B6mHZcof6R991F0VGSYGtDvb2JA/viewform" },
+                          { name: "🎨 Mehendi", link: "https://docs.google.com/forms/d/e/1FAIpQLSc0IIkXhpJvdBzLAzN1Qzp5LKTo8-AptcqexKtcr4LHpGoxxw/viewform" },
+                          { name: "💅 Nail Art", link: "https://docs.google.com/forms/d/e/1FAIpQLSf0hLEtsP7d9SIoHcaLI84jbRi5Dbh_ilHvdb4B6uErAHMd4w/viewform" },
+                          { name: "🎨 Painting", link: "https://docs.google.com/forms/d/e/1FAIpQLSez2ZBKdmNyYJFiaaqNKhTHXeMUo8KXCAH0fvMI9JZJwuIWyA/viewform" },
+                          { name: "🎨 Rangoli", link: "https://docs.google.com/forms/d/e/1FAIpQLSezAjPI08g7m7rpqgnLSeFlswMkA5fS7JHQflV4of2Ls-cG_g/viewform" },
+                          { name: "🎨 Sketching", link: "https://docs.google.com/forms/d/e/1FAIpQLSfMk3-Mgw-VLznxMXY4cFB-dBo8BRAZ5dOFSgSa_3ucouO1zQ/viewform" },
+                          { name: "💃 Solo Dance", link: "https://docs.google.com/forms/d/e/1FAIpQLSc_F4_McW_zJArNG9uu4NbvpwwZcv5Wm2f6uyaeLCAETyh10g/viewform" },
+                          { name: "🎤 Solo Singing", link: "https://docs.google.com/forms/d/e/1FAIpQLSfccSaFZaYR7WVREvpdWoZaeg12ww4EeLOlnyhbp5L-uorn9w/viewform" },
+                          { name: "🎭 MGM's Got Talent", link: "https://docs.google.com/forms/d/e/1FAIpQLSdgQyoouq7ZVnAYPXwpzivDk_n8lKMNOwQ4hHXVq5sk11qO9w/viewform" },
+                        ].map((cultural, index) => (
+                          <li key={index}>
+                            <a href={cultural.link} target="_blank" rel="noopener noreferrer" className="block px-4 py-3 text-gray-200 hover:bg-gray-700 font-semibold tracking-wider">
+                              {cultural.name}
                             </a>
                           </li>
                         ))}
