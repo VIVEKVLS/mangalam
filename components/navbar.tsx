@@ -101,17 +101,22 @@ const Navbar = () => {
                       <ul className="bg-gray-800 rounded-lg mt-1 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900">
                         {[
                           { name: "🎤 Antakshari", link: "https://docs.google.com/forms/d/e/1FAIpQLSd6AWJGWERiNZp8MR0yd9xFNP3tiNauBPQ5C8EG6-70r6OTmg/viewform" },
+                          { name: "🎨 Face Painting", link: "https://docs.google.com/forms/d/e/1FAIpQLSeslv8W59iXwO_KqATdtWlvI1rqgYt2hO4U6PaVqehOKZ8nzg/viewform" },
                           { name: "💃 Group Dance", link: "https://docs.google.com/forms/d/e/1FAIpQLScnMSjeLoEQmp39ruUuidGltpnZcxa8tXbVx9UU9FZHgYYiDA/viewform" },
                           { name: "💅 Makeup", link: "https://docs.google.com/forms/d/e/1FAIpQLScvnkfCOO_XxoYJneqril5B6mHZcof6R991F0VGSYGtDvb2JA/viewform" },
                           { name: "🎨 Mehendi", link: "https://docs.google.com/forms/d/e/1FAIpQLSc0IIkXhpJvdBzLAzN1Qzp5LKTo8-AptcqexKtcr4LHpGoxxw/viewform" },
+                          { name: "🎭 MGM's Got Talent", link: "https://docs.google.com/forms/d/e/1FAIpQLSdgQyoouq7ZVnAYPXwpzivDk_n8lKMNOwQ4hHXVq5sk11qO9w/viewform" },
                           { name: "💅 Nail Art", link: "https://docs.google.com/forms/d/e/1FAIpQLSf0hLEtsP7d9SIoHcaLI84jbRi5Dbh_ilHvdb4B6uErAHMd4w/viewform" },
+                          { name: "🍳 No Fire Cooking", link: "https://docs.google.com/forms/d/e/1FAIpQLScDqlrjKhRoo4R4nGpd9Q8T8vv7udnS2lPTvwUJnZuh_6Y8iQ/viewform" },
                           { name: "🎨 Painting", link: "https://docs.google.com/forms/d/e/1FAIpQLSez2ZBKdmNyYJFiaaqNKhTHXeMUo8KXCAH0fvMI9JZJwuIWyA/viewform" },
                           { name: "🎨 Rangoli", link: "https://docs.google.com/forms/d/e/1FAIpQLSezAjPI08g7m7rpqgnLSeFlswMkA5fS7JHQflV4of2Ls-cG_g/viewform" },
                           { name: "🎨 Sketching", link: "https://docs.google.com/forms/d/e/1FAIpQLSfMk3-Mgw-VLznxMXY4cFB-dBo8BRAZ5dOFSgSa_3ucouO1zQ/viewform" },
                           { name: "💃 Solo Dance", link: "https://docs.google.com/forms/d/e/1FAIpQLSc_F4_McW_zJArNG9uu4NbvpwwZcv5Wm2f6uyaeLCAETyh10g/viewform" },
                           { name: "🎤 Solo Singing", link: "https://docs.google.com/forms/d/e/1FAIpQLSfccSaFZaYR7WVREvpdWoZaeg12ww4EeLOlnyhbp5L-uorn9w/viewform" },
-                          { name: "🎭 MGM's Got Talent", link: "https://docs.google.com/forms/d/e/1FAIpQLSdgQyoouq7ZVnAYPXwpzivDk_n8lKMNOwQ4hHXVq5sk11qO9w/viewform" },
-                        ].map((cultural, index) => (
+                          { name: "👕 Tshirt Painting", link: "https://docs.google.com/forms/d/e/1FAIpQLScA7okmSfFZKgeqokw7oogl2M440sijst8LM6P1Q_1Deu6eLg/viewform" },
+                        ]
+                        .sort((a, b) => a.name.localeCompare(b.name)) // Sort alphabetically
+                        .map((cultural, index) => (
                           <li key={index}>
                             <a href={cultural.link} target="_blank" rel="noopener noreferrer" className="block px-4 py-3 text-gray-200 hover:bg-gray-700 font-semibold tracking-wider">
                               {cultural.name}
