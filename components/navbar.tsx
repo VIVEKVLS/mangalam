@@ -6,12 +6,14 @@ import { ChevronDown, ChevronUp, Gamepad2 } from "lucide-react";
 
 const Navbar = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const [isSportsOpen, setIsSportsOpen] = useState(false);
+  const [isTechnicalOpen, setIsTechnicalOpen] = useState(false); // New state
   const [isCulturalOpen, setIsCulturalOpen] = useState(false);
+  const [isSportsOpen, setIsSportsOpen] = useState(false);
 
   const toggleRegisterDropdown = () => setIsRegisterOpen(!isRegisterOpen);
-  const toggleSportsDropdown = () => setIsSportsOpen(!isSportsOpen);
+  const toggleTechnicalDropdown = () => setIsTechnicalOpen(!isTechnicalOpen); // New toggle
   const toggleCulturalDropdown = () => setIsCulturalOpen(!isCulturalOpen);
+  const toggleSportsDropdown = () => setIsSportsOpen(!isSportsOpen);
 
   return (
     <nav className="bg-black bg-opacity-90 fixed w-full z-50 shadow-lg">
@@ -35,14 +37,82 @@ const Navbar = () => {
             {isRegisterOpen && (
               <div className="absolute right-0 top-full mt-2 w-72 bg-gray-900 text-white rounded-lg shadow-lg z-50">
                 <ul className="py-2">
-                  {/* Sports Dropdown */}
+                  {/* Technical Dropdown (New) */}
+                  <li>
+                    <button
+                      onClick={toggleTechnicalDropdown}
+                      className="flex items-center w-full text-left px-4 py-3 hover:bg-gray-800 font-bold"
+                    >
+                      <span className="inline-flex items-center justify-center w-8 h-8 bg-pink-600 text-black font-extrabold text-lg rounded-full mr-2 shadow-lg">
+                        1
+                      </span>
+                      <span className="text-lg tracking-wider uppercase">🛠 Technical</span>
+                      {isTechnicalOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
+                    </button>
+
+                    {isTechnicalOpen && (
+                      <ul className="bg-gray-800 rounded-lg mt-1">
+                        <li className="px-4 py-3 text-gray-400 font-semibold italic">
+                          Coming Soon
+                        </li>
+                      </ul>
+                    )}
+                  </li>
+
+                  {/* Cultural Dropdown (Updated) */}
+                  <li>
+                    <button
+                      onClick={toggleCulturalDropdown}
+                      className="flex items-center w-full text-left px-4 py-3 hover:bg-gray-800 font-bold"
+                    >
+                      <span className="inline-flex items-center justify-center w-8 h-8 bg-pink-600 text-black font-extrabold text-lg rounded-full mr-2 shadow-lg">
+                        2
+                      </span>
+                      <span className="text-lg tracking-wider uppercase">🎭 Cultural</span>
+                      {isCulturalOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
+                    </button>
+
+                    {isCulturalOpen && (
+                      <ul className="bg-gray-800 rounded-lg mt-1 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900">
+                        {[
+                          { name: "🎤 Antakshari", link: "https://docs.google.com/forms/d/e/1FAIpQLSd6AWJGWERiNZp8MR0yd9xFNP3tiNauBPQ5C8EG6-70r6OTmg/viewform" },
+                          { name: "🎭 Acting Competition", link: "https://docs.google.com/forms/d/e/1FAIpQLSfd88B2gpKyItisly3pwj93pLOeunW8uwp-WzZwWDLhbw8t8g/viewform" },
+                          { name: "🎨 Face Painting", link: "https://docs.google.com/forms/d/e/1FAIpQLSeslv8W59iXwO_KqATdtWlvI1rqgYt2hO4U6PaVqehOKZ8nzg/viewform" },
+                          { name: "👗 Fashion Show Competition", link: "https://docs.google.com/forms/d/e/1FAIpQLSf9rBzbCvxihuEentEwPRHBo9k7MmgP3OWR6-hIiVsUl0gnIQ/viewform" },
+                          { name: "🎮 Fan Wars Competition", link: "https://docs.google.com/forms/d/e/1FAIpQLSd2QoeWPUe7Rc_P68X0xzKMHGxhrHz6Nnnkhfbo428H18IPkg/viewform" },
+                          { name: "💃 Group Dance", link: "https://docs.google.com/forms/d/e/1FAIpQLScnMSjeLoEQmp39ruUuidGltpnZcxa8tXbVx9UU9FZHgYYiDA/viewform" },
+                          { name: "💅 Makeup", link: "https://docs.google.com/forms/d/e/1FAIpQLScvnkfCOO_XxoYJneqril5B6mHZcof6R991F0VGSYGtDvb2JA/viewform" },
+                          { name: "🎨 Mehendi", link: "https://docs.google.com/forms/d/e/1FAIpQLSc0IIkXhpJvdBzLAzN1Qzp5LKTo8-AptcqexKtcr4LHpGoxxw/viewform" },
+                          { name: "🎭 MGM Got Talent", link: "https://docs.google.com/forms/d/e/1FAIpQLSdgQyoouq7ZVnAYPXwpzivDk_n8lKMNOwQ4hHXVq5sk11qO9w/viewform" },
+                          { name: "💅 Nail Art", link: "https://docs.google.com/forms/d/e/1FAIpQLSf0hLEtsP7d9SIoHcaLI84jbRi5Dbh_ilHvdb4B6uErAHMd4w/viewform" },
+                          { name: "🍳 No Fire Cooking", link: "https://docs.google.com/forms/d/e/1FAIpQLScDqlrjKhRoo4R4nGpd9Q8T8vv7udnS2lPTvwUJnZuh_6Y8iQ/viewform" },
+                          { name: "🎨 Painting", link: "https://docs.google.com/forms/d/e/1FAIpQLSez2ZBKdmNyYJFiaaqNKhTHXeMUo8KXCAH0fvMI9JZJwuIWyA/viewform" },
+                          { name: "🎨 Rangoli", link: "https://docs.google.com/forms/d/e/1FAIpQLSezAjPI08g7m7rpqgnLSeFlswMkA5fS7JHQflV4of2Ls-cG_g/viewform" },
+                          { name: "🎨 Sketching", link: "https://docs.google.com/forms/d/e/1FAIpQLSfMk3-Mgw-VLznxMXY4cFB-dBo8BRAZ5dOFSgSa_3ucouO1zQ/viewform" },
+                          { name: "💃 Solo Dance", link: "https://docs.google.com/forms/d/e/1FAIpQLSc_F4_McW_zJArNG9uu4NbvpwwZcv5Wm2f6uyaeLCAETyh10g/viewform" },
+                          { name: "🎤 Solo Singing", link: "https://docs.google.com/forms/d/e/1FAIpQLSfccSaFZaYR7WVREvpdWoZaeg12ww4EeLOlnyhbp5L-uorn9w/viewform" },
+                          { name: "👕 Tshirt Painting", link: "https://docs.google.com/forms/d/e/1FAIpQLScA7okmSfFZKgeqokw7oogl2M440sijst8LM6P1Q_1Deu6eLg/viewform" },
+                        ]
+                        .sort((a, b) => a.name.localeCompare(b.name)) // Sort alphabetically
+                        .map((cultural, index) => (
+                          <li key={index}>
+                            <a href={cultural.link} target="_blank" rel="noopener noreferrer" className="block px-4 py-3 text-gray-200 hover:bg-gray-700 font-semibold tracking-wider">
+                              {cultural.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+
+                  {/* Sports Dropdown (Unchanged) */}
                   <li>
                     <button
                       onClick={toggleSportsDropdown}
                       className="flex items-center w-full text-left px-4 py-3 hover:bg-gray-800 font-bold"
                     >
                       <span className="inline-flex items-center justify-center w-8 h-8 bg-pink-600 text-black font-extrabold text-lg rounded-full mr-2 shadow-lg">
-                        1
+                        3
                       </span>
                       <span className="text-lg tracking-wider uppercase">⚽ Sports</span>
                       {isSportsOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
@@ -77,49 +147,6 @@ const Navbar = () => {
                           <li key={index}>
                             <a href={sport.link} target="_blank" rel="noopener noreferrer" className="block px-4 py-3 text-gray-200 hover:bg-gray-700 font-semibold tracking-wider">
                               {sport.name}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-
-                  {/* Cultural Dropdown */}
-                  <li>
-                    <button
-                      onClick={toggleCulturalDropdown}
-                      className="flex items-center w-full text-left px-4 py-3 hover:bg-gray-800 font-bold"
-                    >
-                      <span className="inline-flex items-center justify-center w-8 h-8 bg-pink-600 text-black font-extrabold text-lg rounded-full mr-2 shadow-lg">
-                        2
-                      </span>
-                      <span className="text-lg tracking-wider uppercase">🎭 Cultural</span>
-                      {isCulturalOpen ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
-                    </button>
-
-                    {isCulturalOpen && (
-                      <ul className="bg-gray-800 rounded-lg mt-1 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900">
-                        {[
-                          { name: "🎤 Antakshari", link: "https://docs.google.com/forms/d/e/1FAIpQLSd6AWJGWERiNZp8MR0yd9xFNP3tiNauBPQ5C8EG6-70r6OTmg/viewform" },
-                          { name: "🎨 Face Painting", link: "https://docs.google.com/forms/d/e/1FAIpQLSeslv8W59iXwO_KqATdtWlvI1rqgYt2hO4U6PaVqehOKZ8nzg/viewform" },
-                          { name: "💃 Group Dance", link: "https://docs.google.com/forms/d/e/1FAIpQLScnMSjeLoEQmp39ruUuidGltpnZcxa8tXbVx9UU9FZHgYYiDA/viewform" },
-                          { name: "💅 Makeup", link: "https://docs.google.com/forms/d/e/1FAIpQLScvnkfCOO_XxoYJneqril5B6mHZcof6R991F0VGSYGtDvb2JA/viewform" },
-                          { name: "🎨 Mehendi", link: "https://docs.google.com/forms/d/e/1FAIpQLSc0IIkXhpJvdBzLAzN1Qzp5LKTo8-AptcqexKtcr4LHpGoxxw/viewform" },
-                          { name: "🎭 MGM's Got Talent", link: "https://docs.google.com/forms/d/e/1FAIpQLSdgQyoouq7ZVnAYPXwpzivDk_n8lKMNOwQ4hHXVq5sk11qO9w/viewform" },
-                          { name: "💅 Nail Art", link: "https://docs.google.com/forms/d/e/1FAIpQLSf0hLEtsP7d9SIoHcaLI84jbRi5Dbh_ilHvdb4B6uErAHMd4w/viewform" },
-                          { name: "🍳 No Fire Cooking", link: "https://docs.google.com/forms/d/e/1FAIpQLScDqlrjKhRoo4R4nGpd9Q8T8vv7udnS2lPTvwUJnZuh_6Y8iQ/viewform" },
-                          { name: "🎨 Painting", link: "https://docs.google.com/forms/d/e/1FAIpQLSez2ZBKdmNyYJFiaaqNKhTHXeMUo8KXCAH0fvMI9JZJwuIWyA/viewform" },
-                          { name: "🎨 Rangoli", link: "https://docs.google.com/forms/d/e/1FAIpQLSezAjPI08g7m7rpqgnLSeFlswMkA5fS7JHQflV4of2Ls-cG_g/viewform" },
-                          { name: "🎨 Sketching", link: "https://docs.google.com/forms/d/e/1FAIpQLSfMk3-Mgw-VLznxMXY4cFB-dBo8BRAZ5dOFSgSa_3ucouO1zQ/viewform" },
-                          { name: "💃 Solo Dance", link: "https://docs.google.com/forms/d/e/1FAIpQLSc_F4_McW_zJArNG9uu4NbvpwwZcv5Wm2f6uyaeLCAETyh10g/viewform" },
-                          { name: "🎤 Solo Singing", link: "https://docs.google.com/forms/d/e/1FAIpQLSfccSaFZaYR7WVREvpdWoZaeg12ww4EeLOlnyhbp5L-uorn9w/viewform" },
-                          { name: "👕 Tshirt Painting", link: "https://docs.google.com/forms/d/e/1FAIpQLScA7okmSfFZKgeqokw7oogl2M440sijst8LM6P1Q_1Deu6eLg/viewform" },
-                        ]
-                        .sort((a, b) => a.name.localeCompare(b.name)) // Sort alphabetically
-                        .map((cultural, index) => (
-                          <li key={index}>
-                            <a href={cultural.link} target="_blank" rel="noopener noreferrer" className="block px-4 py-3 text-gray-200 hover:bg-gray-700 font-semibold tracking-wider">
-                              {cultural.name}
                             </a>
                           </li>
                         ))}
