@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const glimpses = {
   Technical: [
+    "/IMAGES/Technical-glimpse-1.jpg",
     "/IMAGES/Technical-glimpse-2.jpg",
     "/IMAGES/Technical-glimpse-3.jpg",
     "/IMAGES/Technical-glimpse-4.jpg",
@@ -50,7 +51,8 @@ const Glimpses = () => {
       setCurrentIndexes((prev) => {
         const newIndexes = { ...prev };
         for (const key in glimpses) {
-          newIndexes[key] = (prev[key] + 1) % glimpses[key].length;
+          const typedKey = key as keyof typeof glimpses;
+          newIndexes[typedKey] = (prev[typedKey] + 1) % glimpses[typedKey].length;
         }
         return newIndexes;
       });
@@ -62,8 +64,7 @@ const Glimpses = () => {
     setCurrentIndexes((prev) => ({
       ...prev,
       [category]:
-        (prev[category] - 1 + glimpses[category].length) %
-        glimpses[category].length,
+        (prev[category] - 1 + glimpses[category].length) % glimpses[category].length,
     }));
   };
 
@@ -81,37 +82,40 @@ const Glimpses = () => {
           Glimpses of Mangalam
         </h2>
 
-        {Object.entries(glimpses).map(([category, images], idx) => (
-          <div key={idx} className="mb-16 text-center">
-            <h3 className={`text-3xl font-bold mb-6 ${arrowColors[category as keyof typeof glimpses]}`}>
-              {category}
-            </h3>
-            <div className="relative max-w-md mx-auto">
-              <div className="border border-gray-700 rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src={images[currentIndexes[category as keyof typeof glimpses]]}
-                  alt={`${category} glimpse ${currentIndexes[category as keyof typeof glimpses] + 1}`}
-                  width={500}
-                  height={300}
-                  className="object-cover w-full h-64"
-                  priority
-                />
+        {Object.entries(glimpses).map(([category, images], idx) => {
+          const typedCategory = category as keyof typeof glimpses;
+          return (
+            <div key={idx} className="mb-16 text-center">
+              <h3 className={`text-3xl font-bold mb-6 ${arrowColors[typedCategory]}`}>
+                {typedCategory}
+              </h3>
+              <div className="relative max-w-md mx-auto">
+                <div className="border border-gray-700 rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src={images[currentIndexes[typedCategory]]}
+                    alt={`${typedCategory} glimpse ${currentIndexes[typedCategory] + 1}`}
+                    width={500}
+                    height={300}
+                    className="object-cover w-full h-64"
+                    priority
+                  />
+                </div>
+                <button
+                  onClick={() => handlePrev(typedCategory)}
+                  className={`absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-70 p-2 rounded-full ${arrowColors[typedCategory]}`}
+                >
+                  <ChevronLeft size={28} />
+                </button>
+                <button
+                  onClick={() => handleNext(typedCategory)}
+                  className={`absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-70 p-2 rounded-full ${arrowColors[typedCategory]}`}
+                >
+                  <ChevronRight size={28} />
+                </button>
               </div>
-              <button
-                onClick={() => handlePrev(category as keyof typeof glimpses)}
-                className={`absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-70 p-2 rounded-full ${arrowColors[category as keyof typeof glimpses]}`}
-              >
-                <ChevronLeft size={28} />
-              </button>
-              <button
-                onClick={() => handleNext(category as keyof typeof glimpses)}
-                className={`absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-70 p-2 rounded-full ${arrowColors[category as keyof typeof glimpses]}`}
-              >
-                <ChevronRight size={28} />
-              </button>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
