@@ -4,20 +4,17 @@ import Link from "next/link";
 const contactInfo = [
   {
     domain: "Technical",
-    secretary: "Shitalaprasad Sharma",
-    jointSecretary: "Vivek Shingne",
+    names: ["Shitalaprasad Sharma", "Vivek Shingne"],
     color: "yellow-400",
   },
   {
     domain: "Sports",
-    secretary: "Pratham Tamboli",
-    jointSecretaries: ["Shreya Jangam", "Swaraj Rathod"],
+    names: ["Pratham Tamboli", "Shreya Jangam", "Swaraj Rathod"],
     color: "green-400",
   },
   {
     domain: "Cultural",
-    secretary: "Vishakha D. Pingat",
-    jointSecretary: "Snehil Suryavanshi",
+    names: ["Vishakha D. Pingat", "Snehil Suryavanshi"],
     color: "purple-400",
   },
 ];
@@ -45,30 +42,23 @@ const Footer = () => {
           Brains Behind the Bash
         </h2>
 
+        {/* Secretary Sections */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           {contactInfo.map((info, index) => (
-            <div key={index} className="relative group">
+            <div key={index} className="relative group text-center">
               <h3 className={`text-2xl font-semibold text-${info.color} mb-2`}>{info.domain}</h3>
               <div className={`w-14 h-1 bg-${info.color} mx-auto mb-4 group-hover:w-20 transition-all duration-300`}></div>
-              <p className="text-lg text-gray-300">
-                <span className="font-semibold">Secretary:</span> {info.secretary}
-              </p>
-              {Array.isArray(info.jointSecretaries) ? (
-                info.jointSecretaries.map((joint, i) => (
-                  <p key={i} className="text-lg text-gray-300">
-                    <span className="font-semibold">Joint Secretary:</span> {joint}
-                  </p>
-                ))
-              ) : (
-                <p className="text-lg text-gray-300">
-                  <span className="font-semibold">Joint Secretary:</span> {info.jointSecretary}
+              <p className="text-lg font-semibold text-white mb-2">Secretary</p>
+              {info.names.map((name, i) => (
+                <p key={i} className="text-lg text-gray-300">
+                  {name}
                 </p>
-              )}
+              ))}
             </div>
           ))}
         </div>
 
-        {/* Representatives Section in 3-column format */}
+        {/* Representatives Section */}
         <div className="text-center mb-12">
           <h3 className="text-2xl font-semibold text-blue-400">Representatives of Council</h3>
           <div className="w-14 h-1 bg-blue-400 mx-auto my-2"></div>
@@ -81,7 +71,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Joint General Secretary Section */}
+        {/* Joint General Secretary */}
         <div className="text-center mb-12">
           <h3 className="text-2xl font-semibold text-green-400">Joint General Secretary</h3>
           <div className="w-14 h-1 bg-green-400 mx-auto my-2"></div>
@@ -105,26 +95,34 @@ const Footer = () => {
 
         {/* Footer Text */}
         <p className="text-center text-gray-400 text-lg">
-          © 2025 <span className="text-red-400 font-semibold">Mangalam.</span> All rights reserved by the <span className="text-yellow-400 font-semibold">Student Council</span>.
+          © 2025 <span className="text-red-400 font-semibold">Mangalam.</span> All rights reserved by the{" "}
+          <span className="text-yellow-400 font-semibold">Student Council</span>.
         </p>
         <p className="text-center text-gray-500 text-sm mt-2">
           Website Credits:
           <Link href="https://www.instagram.com/harshal.tupe_/" target="_blank" className="text-yellow-400 hover:underline ml-1">
             Harshal Tupe
-          </Link>,
+          </Link>
+          ,
           <Link href="https://www.instagram.com/duskktilldawn.27/" target="_blank" className="text-yellow-400 hover:underline ml-1">
             Shitalaprasad Sharma
-          </Link>,
+          </Link>
+          ,
           <Link href="https://www.instagram.com/viivek_01/" target="_blank" className="text-yellow-400 hover:underline ml-1">
             Vivek Shingne
           </Link>
         </p>
 
-        {/* Visitor Count Section */}
+        {/* Visitor Counter */}
         <div className="flex justify-center items-center my-5">
           <p className="text-gray-500 mx-2 text-sm">Visitor count:</p>
           <Link href="#">
-            <img src="https://hitwebcounter.com/counter/counter.php?page=19416284&style=0006&nbdigits=8&type=page&initCount=995" className="w-24" title="Counter Widget" alt="Visit counter For Websites" />
+            <img
+              src="https://hitwebcounter.com/counter/counter.php?page=19416284&style=0006&nbdigits=8&type=page&initCount=995"
+              className="w-24"
+              title="Counter Widget"
+              alt="Visit counter For Websites"
+            />
           </Link>
         </div>
       </div>

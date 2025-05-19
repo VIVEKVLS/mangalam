@@ -20,7 +20,13 @@ const CurrentFestDetails = () => {
             The backbone of Mangalam, the Student Council orchestrates the fest with sheer dedication and teamwork. 
             From event planning to seamless execution, they ensure an experience like no other!
           </p>
-        </div>
+             <img
+            src="/student-council-group.jpg"
+            alt="Student Council Group"
+            className="rounded-lg mx-auto shadow-lg max-w-full h-auto"
+          />
+
+        </div>  
 
         {/* Event Sections */}
         <div className="space-y-10">
